@@ -1,0 +1,278 @@
+/*==========================
+        LAYOUT
+==========================*/
+
+.contendor-home{
+    width:100%;
+    height:100dvh;
+    display:flex;
+    flex-direction:column;
+}
+
+header{
+    width:100%;
+    background:green;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+    padding:8px 0;
+    position:sticky;
+    top:0;
+    z-index:999;
+}
+
+header img{
+    width:30px;
+    height:30px;
+}
+
+header h1{
+    color:#fff;
+    font-size:26px;
+}
+
+
+.btn-menu-principal{
+    position:absolute;
+    right:20px;
+    background:none;
+    border: none;
+    color:#fff;
+    font-size:30px;
+    cursor:pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btn-cafecito {
+   position:absolute;
+   right:65px;
+   background:none;
+   border:none;
+   color:#fff;
+   font-size:30px;
+   cursor:pointer; 
+}
+
+main{
+    flex:1;
+    display:flex;
+    overflow:hidden;
+}
+
+aside{
+    width:50%;
+    padding:15px;
+    box-sizing:border-box;
+}
+
+aside:nth-child(1){
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+aside:nth-child(2){
+    overflow-y:auto;
+    
+}
+
+footer{
+    width:100%;
+    height:50px;
+    background:green;
+    color:#fff;
+    display:flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 5px 0;
+    position: relative;
+}
+.footer-info {
+    width: 90%;
+    height: 45px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.logo {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 25px;
+}
+.logo img {
+    width: 100%;;
+}
+
+/*==========================
+    TARJETAS FARMACIAS
+==========================*/
+
+.contenedor-farmacias{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    gap:5px;
+}
+
+.card-farmacia{
+    position:relative;
+    background:var(--color-card);
+    border:1px solid green;
+    border-radius:18px;
+    padding:15px;
+    box-shadow:0 2px 8px rgba(0,120,0,.20);
+    transition:.25s;
+}
+
+.card-farmacia:hover{
+    transform:translateY(-2px);
+    box-shadow:0 5px 15px rgba(0,0,0,.20);
+}
+
+.card-header{
+    margin-bottom:12px;
+    padding-right:60px;
+}
+
+.card-header h4{
+    margin:0;
+    font-size:1.15rem;
+    color:var(--color-texto);
+}
+
+.card-body{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+.card-body p{
+    margin:0;
+    line-height:1.35;
+    color:var(--color-texto-secundario);
+}
+
+.card-body strong{
+    color:var(--color-principal);
+}
+
+.btn-maps{
+    position:absolute;
+    top:15px;
+    right:15px;
+
+    width:46px;
+    height:46px;
+
+    border-radius:50%;
+    background:#ff1d1d;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    color:#fff;
+    text-decoration:none;
+
+    transition:.2s;
+}
+
+.btn-maps:hover{
+    transform:scale(1.08);
+}
+
+.btn-show-map{
+    width:50px;
+    height:50px;
+
+    border:none;
+    border-radius:50%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    cursor:pointer;
+
+    background:var(--color-principal);
+    color:#fff;
+
+    margin: 0 auto;
+}
+
+
+/*==========================
+      TEMAS
+==========================*/
+
+.modoOscuroHeader{
+    background:black;
+}
+
+.modoClaroHeader{
+    background:green;
+}
+
+.modoOscuroMain{
+    background:#1f1f1f;
+    color:#fff;
+}
+
+.modoClaroMain{
+    background:#fff;
+    color:#000;
+}
+
+
+/*==========================
+      RESPONSIVE
+==========================*/
+
+@media(max-width:768px){
+
+    header{
+        justify-content:flex-start;
+        padding-left:10px;
+    }
+
+    header h1{
+        font-size:20px;
+    }
+
+    main{
+        display:flex;
+        flex-direction:column;
+        overflow:visible;
+    }
+
+    aside{
+        width:100%;
+        padding:0 10px;
+    }
+    aside:nth-child(1){
+        align-items:flex-start;
+    }
+
+    aside:nth-child(2){
+        overflow:visible;
+    }
+
+    footer{
+       padding-left: 10px;
+       display: flex;
+       align-items: flex-start;
+       font-size: 12px;
+    }
+    .footer-info {
+        width: 90%;
+        text-align: center;
+    }
+
+
+}

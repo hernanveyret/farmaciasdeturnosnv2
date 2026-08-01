@@ -1,0 +1,207 @@
+.containerAlmanac{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    margin:1rem 0;
+}
+
+.cardAlmanac{
+    width:340px;
+    border-radius:22px;
+    overflow:hidden;
+    transition:.35s;
+}
+
+.cardClaro{
+    background:#ffffff;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+}
+
+.cardOscuro{
+    background:#1f1f1f;
+    box-shadow:0 8px 25px rgba(0,0,0,.4);
+}
+
+.monthInfo{
+    position:relative;
+    padding:1.3rem 1rem;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    border-bottom:1px solid rgba(0,0,0,.08);
+}
+
+.monthClaro{
+    background:#f8fafc;
+}
+
+.monthOscuro{
+    background:#252525;
+}
+
+.monthInfo h3{
+    margin:0;
+    font-size:1.6rem;
+}
+
+.monthInfo p{
+    margin:.2rem 0 .8rem;
+    font-size:1rem;
+}
+
+.monthClaro h3,
+.monthClaro p{
+    color:#1f2937;
+}
+
+.monthOscuro h3,
+.monthOscuro p{
+    color:white;
+}
+
+.toDay{
+    padding:.55rem 1.5rem;
+    border:none;
+    border-radius:999px;
+    color:white;
+    cursor:pointer;
+    transition:.25s;
+    font-weight:600;
+}
+
+.btnClaro{
+    background:linear-gradient(135deg,#22c55e,#16a34a);
+}
+
+.btnOscuro{
+    background:#22c55e;
+}
+
+.toDay:hover{
+    transform:translateY(-2px);
+}
+
+.btn-mes,
+.btn-day-left,
+.btn-day-rigth{
+
+    width:42px;
+    height:42px;
+    border:none;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.btn-mes{
+    position:absolute;
+    top:22px;
+}
+
+.btn-day-left,
+.btn-day-rigth{
+    position:absolute;
+    top:45%;    
+}
+
+.btn-prev{
+    left:16px;
+}
+
+.btn-next{
+    right:16px;
+}
+
+.btn-day-left{
+    left:18px;
+}
+
+.btn-day-rigth{
+    right:18px;
+}
+
+.btnMesClaro{
+    background:#f3f4f6;
+}
+
+.btnMesOscuro{
+    background:#363636;
+}
+
+.btnMesClaro svg{
+    fill:#16a34a;
+}
+
+.btnMesOscuro svg{
+    fill:#4ade80;
+}
+
+.btnMesClaro:hover{
+    background:#16a34a;
+}
+
+.btnMesOscuro:hover{
+    background:#22c55e;
+}
+
+.btnMesClaro:hover svg,
+.btnMesOscuro:hover svg{
+    fill:white;
+}
+
+.dayInfo{
+    position:relative;
+    padding:1.5rem 0 2rem;
+    text-align:center;
+}
+
+.dayClaro{
+    color:#1f2937;
+}
+
+.dayOscuro{
+    color:white;
+}
+
+.dayInfo p:first-child{
+    margin:0;
+    font-size:1.4rem;
+    font-weight:600;
+}
+
+.dayInfo p:nth-child(2){
+    margin:.3rem 0;
+    font-size:7rem;
+    line-height:1;
+    font-weight:700;
+}
+
+.msj-hs{
+    margin-top:1rem;
+}
+
+@media(max-width:420px){
+
+    .cardAlmanac{
+        width:95%;
+    }
+
+    .dayInfo p:nth-child(2){
+        font-size:5.8rem;
+    }
+
+    .monthInfo h3{
+        font-size:1.3rem;
+    }
+
+    .btn-mes,
+    .btn-day-left,
+    .btn-day-rigth{
+        width:36px;
+        height:36px;
+    }
+
+}
