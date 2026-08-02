@@ -519,7 +519,7 @@ useEffect(() => {
                 </span>
               )}
 
-              <span><MdOutlineLocalPhone /><p>{pharmacy.tel}</p></span>
+              { pharmacy.tel && <span><MdOutlineLocalPhone /><p>{pharmacy.tel}</p></span> }
 
             </div>
           </div>

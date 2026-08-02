@@ -21,7 +21,7 @@ const  ApoyarProyecto = ({setIsApoyar}) => {
   return (
     <div className="contenedor-modal">      
         <h3>Apoyar este proyecto</h3>
-
+      <div className="contenedor-cartel">
         <p>
           Esta web es un proyecto independiente, gratuito y sin publicidad
           invasiva. Si te fue útil, podés colaborar para mantenerla online y
@@ -51,6 +51,7 @@ const  ApoyarProyecto = ({setIsApoyar}) => {
           onClick={() => setIsApoyar(false)}>
           Cerrar
         </button>
+        </div>
     </div>
   );
 }

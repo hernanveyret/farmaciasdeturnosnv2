@@ -37,12 +37,17 @@ header h1{
     height: 10px;
     background-color: green;
     border-radius: 50%;
+
 }
 
 .card-farmacia span {
     display: flex;
     align-items: center;
     gap: 10px;
+}
+.card-farmacia span:nth-child(1) {
+    padding-left: 3px;
+    
 }
 
 .btn-menu-principal{
@@ -71,6 +76,7 @@ main{
     flex:1;
     display:flex;
     overflow:hidden;
+    padding-bottom: 10px;
 }
 
 aside{
