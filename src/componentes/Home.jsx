@@ -96,6 +96,10 @@ const Home = () => {
   const [hora, setHora] = useState(mn < 9 ? `${hs}:0${mn}:0${ss}` : `${hs}:${mn}:${ss}`);
 
   useEffect(() => {
+  document.documentElement.classList.toggle("modoOscuroMain", modoTema === false);
+}, [modoTema]);
+  
+  useEffect(() => {
     const cerrarMenu = (e) => {
       if(menuRef.current && !menuRef.current.contains(e.target)){
 
