@@ -10,6 +10,7 @@
     border-radius:22px;
     overflow:hidden;
     transition:.35s;
+    border: 1px solid green;
 }
 
 .cardClaro{

@@ -14,7 +14,7 @@ export default defineConfig({
         'logo512.png'
       ],
       manifest: {
-        name: 'Farmacias de Turno',
+        name: 'Farmacias de Turno SN',
         short_name: 'Farmacias',
         description: 'Consulta de farmacias de turno.',
         theme_color: '#000000',

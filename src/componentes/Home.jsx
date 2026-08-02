@@ -8,6 +8,9 @@ import { LiaMapSolid } from "react-icons/lia";
 import { SiGooglemaps } from "react-icons/si";
 import { FaMapLocationDot } from "react-icons/fa6";
 import { LiaCoffeeSolid } from "react-icons/lia";
+import { MdOutlineLocalPhone } from "react-icons/md";
+import { GrLocationPin } from "react-icons/gr";
+import { MdOutlineLocationOn } from "react-icons/md";
 
 import Alamanaque from "./Almanaque.jsx"
 import AlmanaqueDia from './AlmanaqueDia';
@@ -491,7 +494,7 @@ useEffect(() => {
             key={index}
           >
             <div className="card-body">
-              <h4>{pharmacy.name}</h4>
+              <span><div className="ciculo"></div><h4>{pharmacy.name}</h4></span>
 
               <a
                 className="btn-maps"
@@ -503,17 +506,20 @@ useEffect(() => {
                 <SiGooglemaps size={24}/>
               </a>
 
-              <p>{pharmacy.address}</p>
+              <span><MdOutlineLocationOn /><p>{pharmacy.address}</p></span>
 
               {ubication && (
+                <span>
+                  <GrLocationPin className='pin'/>
                 <p>                  
                   {pharmacy.distance !== null
                     ? formatDistance(pharmacy.distance)
                     : "Calculando..."}
                 </p>
+                </span>
               )}
 
-              <p>{pharmacy.tel}</p>
+              <span><MdOutlineLocalPhone /><p>{pharmacy.tel}</p></span>
 
             </div>
           </div>
