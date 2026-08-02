@@ -463,7 +463,7 @@ useEffect(() => {
         style={{textAlign:'center'}}
       >
         Letra: <span
-          style={{color:'#22C55E'}}
+          style={{fontWeight:'bold'}}
         >{letra}</span>
       </p>
     )}
@@ -498,7 +498,28 @@ useEffect(() => {
             key={index}
           >
             <div className="card-body">
-              <span><div className="ciculo"></div><h4>{pharmacy.name}</h4></span>
+              <span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="15" height="15">
+                    <circle cx="250" cy="250" r="230" fill="none" stroke="#009A3B" strokeWidth="20" />  
+                    <path fill="#009A3B" d="
+                      M 200,60 
+                      L 300,60 
+                      L 300,200 
+                      L 440,200 
+                      L 440,300 
+                      L 300,300 
+                      L 300,440 
+                      L 200,440 
+                      L 200,300 
+                      L 60,300 
+                      L 60,200 
+                      L 200,200 
+                      Z
+                    " />
+                </svg>
+                { /*<div className="ciculo"></div>*/}
+              <h4>{pharmacy.name}</h4>
+              </span>
 
               <a
                 className="btn-maps"

@@ -116,6 +116,28 @@ const Menu = ({
           <BsQrCode />
           <p>Conpartir QR</p>
         </button>
+        <button
+        className='btn-menu-active'>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="25" height="25">
+          <circle cx="250" cy="250" r="230" fill="none" stroke="#009A3B" strokeWidth="20" />  
+          <path fill="#009A3B" d="
+            M 200,60 
+            L 300,60 
+            L 300,200 
+            L 440,200 
+            L 440,300 
+            L 300,300 
+            L 300,440 
+            L 200,440 
+            L 200,300 
+            L 60,300 
+            L 60,200 
+            L 200,200 
+            Z
+          " />
+      </svg>
+          <p style={{fontSize:'14px'}}>Qué es Farmacias de turno SN</p>
+        </button>
       </motion.div>
    
   )

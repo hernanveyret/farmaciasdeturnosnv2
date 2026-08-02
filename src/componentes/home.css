@@ -29,21 +29,11 @@ header h1{
     font-size:26px;
 }
 
-.card-farmacia .ciculo {
-    width: 10px;
-    height: 10px;
-    background-color: green;
-    border-radius: 50%;
-
-}
 
 .card-farmacia span {
     display: flex;
     align-items: center;
     gap: 10px;
-}
-.card-farmacia span:nth-child(1) {
-    padding-left: 3px;    
 }
 
 .btn-menu-principal{
