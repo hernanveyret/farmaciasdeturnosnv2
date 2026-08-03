@@ -460,10 +460,20 @@ useEffect(() => {
       <h3 style={{textAlign:'center'}}>Lista de farmacias</h3>
         {letra && (
       <p className="letra-turno"
-        style={{textAlign:'center'}}
+        style={{display:'flex', justifyContent:'center',alignItems:'center',gap: '10px' }}
       >
         Letra: <span
-          style={{fontWeight:'bold'}}
+          style={{
+            fontWeight:'bold',
+            backgroundColor: 'green',
+            display:'flex',
+            justifyContent:'center',
+            alignItems:'center',
+            borderRadius:'50%',
+            width: '30px',
+            height: '30px',
+           color:'white'
+          }}
         >{letra}</span>
       </p>
     )}
