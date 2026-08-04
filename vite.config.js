@@ -15,7 +15,7 @@ export default defineConfig({
       ],
       manifest: {
         name: 'Farmacias de Turno SN',
-        short_name: 'Farmacias',
+        short_name: 'Farmacias de Turno SN',
         description: 'Consulta de farmacias de turno.',
         theme_color: '#000000',
         background_color: '#000000',
