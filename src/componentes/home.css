@@ -164,28 +164,30 @@ footer{
 }
 
 .btn-maps{
-    position:absolute;
-    top:15px;
-    right:15px;
+    position: absolute;
+    top: 50%;
+    right: 15px;
 
-    width:46px;
-    height:46px;
+    transform: translateY(-50%);
 
-    border-radius:50%;
-    background:#ff1d1d;
+    width: 46px;
+    height: 46px;
 
-    display:flex;
-    justify-content:center;
-    align-items:center;
+    border-radius: 50%;
+    background: #df4c4c;
 
-    color:#fff;
-    text-decoration:none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-    transition:.2s;
+    color: #fff;
+    text-decoration: none;
+
+    transition: transform .2s ease;
 }
 
 .btn-maps:hover{
-    transform:scale(1.08);
+    background: #ee1c1c;
 }
 
 .btn-show-map{

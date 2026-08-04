@@ -364,8 +364,7 @@ useEffect(() => {
           />
       }     
       {        
-          <Menu 
-          
+          <Menu          
           isMenu={isMenu}
           setIsMenu={setIsMenu}
           modoTema={modoTema}
@@ -420,8 +419,7 @@ useEffect(() => {
       </header>
       <main
          className={ modoTema ? 'modoClaroMain' : 'modoOscuroMain' }
-      >
-       
+      >       
         <aside className="aside-izquierdo">
           { isTipoDeAlmanaque ? 
             <Alamanaque
@@ -494,8 +492,7 @@ useEffect(() => {
           >
             <path d="m251.33-204.67-46.66-46.66L433.33-480 204.67-708.67l46.66-46.66L480-526.67l228.67-228.66 46.66 46.66L526.67-480l228.66 228.67-46.66 46.66L480-433.33 251.33-204.67Z"/>
           </svg>
-        ) : (
-          
+        ) : (          
           <FaMapLocationDot size={28} style={{color: modoTema ? 'black' : 'white'}}/>
         )}
       </button>
@@ -539,7 +536,14 @@ useEffect(() => {
                 rel="noopener noreferrer"
                 title="Abrir en Google Maps"
               >
-                <SiGooglemaps size={24}/>
+                <motion.span
+                  whileHover={{
+                  transformOrigin: 'bottom',
+                  rotate: [0, -25, 25, 0]
+                  }}
+                >
+                  <SiGooglemaps size={24}/>
+                </motion.span>
               </a>
 
               <span><MdOutlineLocationOn /><p>{pharmacy.address}</p></span>
