@@ -21,6 +21,7 @@ import ModalGeo from './ModalGeo.jsx';
 import SharedConfirm from './ShareConfirm.jsx';
 import Qr from './Qr.jsx';
 import ApoyarProyecto from './ApoyarProyecto.jsx';
+import Info from './Info.jsx'
 
 import { getData } from "../firebase/auth.js"
 
@@ -69,15 +70,13 @@ const Home = () => {
   const [mostrarMapa, setMostrarMapa] = useState(false);
   const [isLoader, setIsLoader] = useState(true);
 
-
   // false para Almanaque normal - true para almanaque por dias
   const [ isTipoDeAlmanaque, setIsTipoDeAlmanaque ] = useState(config && config.tipoAlmanaque); 
   // true modo claro - false modo oscuro
   const [ modoTema, setModoTema ] = useState(config && config.tema);
   const [ isModalGeo, setIsModalGeo ] = useState(config && config.modalGeo)
   const [ isGeo, setIsGeo ] = useState(config && config.geo);
-  const [ isOtrosbanner, setIsOtrosBanner ] = useState(config && config.otrosBanner)
- 
+  const [ isOtrosbanner, setIsOtrosBanner ] = useState(config && config.otrosBanner) 
   
   const [ calendario, setCalendario ] = useState(null); 
   const [ isMenu, setIsMenu ] = useState(false);
@@ -366,6 +365,7 @@ useEffect(() => {
       }     
       {        
           <Menu 
+          
           isMenu={isMenu}
           setIsMenu={setIsMenu}
           modoTema={modoTema}
@@ -421,6 +421,7 @@ useEffect(() => {
       <main
          className={ modoTema ? 'modoClaroMain' : 'modoOscuroMain' }
       >
+       
         <aside className="aside-izquierdo">
           { isTipoDeAlmanaque ? 
             <Alamanaque
