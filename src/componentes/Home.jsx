@@ -267,7 +267,7 @@ useEffect(() => {
   const horaActual = convertToTime(hora);
   //const inicio = convertToTime("08:00:00");
   const inicio = convertToTime("00:00:00");
-  const fin = convertToTime("07:59:59");
+  const fin = convertToTime("08:30:00");
 
   //  Ajuste para turnos que cruzan medianoche
   const isEarlyMorning = (horaActual >= inicio && horaActual <= fin);
