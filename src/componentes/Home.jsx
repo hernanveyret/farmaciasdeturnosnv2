@@ -170,10 +170,10 @@ useEffect(() => {
   }
   //Mes siguiente
   const handleNext = () => {
-    console.log('mes siguiente', month)
     month === 11 ? setMonth(11) : setMonth(month + 1);
     setDay(1)
   }
+
    const toDay = () => {
     setDay(fecha.getDate())
     setMonth(fecha.getMonth())

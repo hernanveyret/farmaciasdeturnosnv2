@@ -8,14 +8,17 @@
   top: 0;
   left: 0;
   z-index: 1001;
-
   background: rgba(80, 80, 80, 0.35);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 }
 
-.modal-geo {
-  border: 1px solid white;
+.modal-geo {  
+  background-color: rgb(238, 236, 240);
+  box-shadow:
+    0 2px 5px rgba(0, 0, 0, 0.15),
+    0 8px 20px rgba(0, 0, 0, 0.12),
+    0 15px 35px rgba(0, 0, 0, 0.08);  
   border-radius: 20px;
   display: flex;
   flex-direction: column;
@@ -39,8 +42,7 @@
   gap: 20px;
 }
 
-.modal-btn button {
-  
+.modal-btn button {  
   padding: 8.8px 24px;
   border: none;
   border-radius: 20px;

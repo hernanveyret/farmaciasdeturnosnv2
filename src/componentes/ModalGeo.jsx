@@ -10,11 +10,6 @@ const ModalGeo = ({
       modoTema
     }) => {
 
-  useEffect(() => {
-    if(isGeo){
-      console.log('is goe dentro del modal',isGeo)
-    }
-  },[isGeo])
   return (
     <div className="contenedor-mdodal-geo">
       <div className="modal-geo" style={{borderColor: modoTema ? 'black' : 'white'}}>
@@ -26,9 +21,7 @@ const ModalGeo = ({
           <button
             type='button'
             onClick={() => {
-              console.log('click si antes: ', isGeo)
               setIsGeo(true)
-              console.log('click si despues: ', isGeo)
               setIsModalGeo(false)
             }}
           >Si</button>
