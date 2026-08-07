@@ -3,6 +3,7 @@
     display:flex;
     justify-content:center;
     margin:1rem 0;
+    
 }
 
 .cardAlmanac{
@@ -10,7 +11,6 @@
     border-radius:22px;
     overflow:hidden;
     transition:.35s;
-    border: 1px solid green;
 }
 
 .cardClaro{
