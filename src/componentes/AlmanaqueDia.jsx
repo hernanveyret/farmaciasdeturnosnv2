@@ -43,12 +43,6 @@ const AlmanaqueDia = ({
               className={`btn-mes btn-prev ${modoTema ? "btnMesClaro" : "btnMesOscuro"}`}
               onClick={handlePrev}
               title="Mes anterior"
-              whileHover={{
-                x: [-1,-10,0]
-              }}
-              transition={{
-                duration: 0.15,
-              }}
             >
               <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
                 <path d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z"/>
@@ -75,12 +69,6 @@ const AlmanaqueDia = ({
               className={`btn-mes btn-next ${modoTema ? "btnMesClaro" : "btnMesOscuro"}`}
               onClick={handleNext}
               title="Mes siguiente"
-              whileHover={{
-                x: [1,10,0]
-              }}
-              transition={{
-                duration: 0.15,
-              }}
             >
               <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
                 <path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"/>
@@ -107,12 +95,6 @@ const AlmanaqueDia = ({
             className={`btn-day-left ${modoTema ? "btnMesClaro" : "btnMesOscuro"}`}
             onClick={handleChangeDayStringPrev}
             title="Día anterior"
-            whileHover={{
-              x: [-1,-10,0]
-            }}
-            transition={{
-              duration: 0.15,
-            }}
           >
             <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
               <path d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z"/>
@@ -123,12 +105,6 @@ const AlmanaqueDia = ({
             className={`btn-day-rigth ${modoTema ? "btnMesClaro" : "btnMesOscuro"}`}
             onClick={handleChangeDayStringNext}
             title="Día siguiente"
-            whileHover={{
-              x: [1,10,0]
-            }}
-            transition={{
-              duration: 0.15,
-            }}
           >
             <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
               <path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"/>

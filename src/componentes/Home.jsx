@@ -384,7 +384,7 @@ useEffect(() => {
         className={ modoTema ? 'modoClaroHeader' : 'modoOscuroHeader' }
       >
         <img src='./iconoCruzFarmaciaBlanca.png' alt='Imagen logo' />
-        <h1>Farmacias de tuno SN</h1>
+        <h1>Farmacias de Turno SN</h1>
 
         <motion.button          
           type='button'          
