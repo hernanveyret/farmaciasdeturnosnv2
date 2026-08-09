@@ -22,7 +22,6 @@ import SharedConfirm from './ShareConfirm.jsx';
 import Qr from './Qr.jsx';
 import ApoyarProyecto from './ApoyarProyecto.jsx';
 import Info from './Info.jsx'
-import Install from './Install.jsx';
 
 import { getData } from "../firebase/auth.js"
 
@@ -347,12 +346,6 @@ useEffect(() => {
     return `${distance} Km.`;
   };  
 
-  const comprobarInstalacio = () => {
-    const res = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true
-    const esIOS =  /iPhone|iPad|iPod/i.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
-    return { res: res, ios: esIOS}
-  }
-
   return (
     <div className="contendor-home">
       {
@@ -361,12 +354,6 @@ useEffect(() => {
       { isCopyLink && <SharedConfirm /> }
       { isQr && <Qr setIsQr={setIsQr}/> }
       { isApoyar && <ApoyarProyecto setIsApoyar={setIsApoyar}/> }
-      { isInstalar && 
-        <Install 
-          setIsInstalar={setIsInstalar} 
-          comprobarInstalacio={comprobarInstalacio} 
-        />
-      }
       {
         isModalGeo && 
           <ModalGeo 
@@ -395,7 +382,6 @@ useEffect(() => {
           setIsQr={setIsQr}
           isInstalar={isInstalar}
           setIsInstalar={setIsInstalar}
-          comprobarInstalacio={comprobarInstalacio}
           />
       }
       <header

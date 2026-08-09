@@ -123,18 +123,17 @@ const Menu = ({
           <p>Conpartir QR</p>
         </button>
 
-        <motion.button
-          type='button'
+        <Link
           className='btn-menu-active'
-          onClick={() => {
-            setIsMenu(false)
-            setIsInstalar(true)
-            comprobarInstalacio()
-          }}
-        >
-          <MdInstallMobile />
-          <p>Instalar en tu dispositivo</p>
-        </motion.button>
+          style={{
+            textDecoration:'none',
+             textAlign:'center',
+              fontFamily: 'Lucida Sans'
+            }}
+            to='/install'>
+              <MdInstallMobile />
+              <p style={{ textDecoration:'none'}}>Instalar en tu dispositivo</p>
+        </Link>
         
         <Link 
           className='btn-menu-active'
@@ -161,7 +160,9 @@ const Menu = ({
                     fill="#FFFFFF"/>
             </svg>
             <p style={{ textDecoration:'none'}}>Informacion Importante</p>
-          </Link>
+      </Link>
+
+          
       </motion.div>
    
   )
