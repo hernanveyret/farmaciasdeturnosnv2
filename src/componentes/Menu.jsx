@@ -53,6 +53,7 @@ const Menu = ({
       <motion.div 
         className={`menu ${modoTema ? 'menu-light' : 'menu-dark'}`}
         ref={menuRef}
+         initial={{ x: -300 }}
         animate={{ x: isMenu ? 0 : -300 }}        
         drag = "x"        
         dragConstraints={{

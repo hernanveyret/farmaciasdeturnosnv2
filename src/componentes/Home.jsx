@@ -349,7 +349,7 @@ useEffect(() => {
 
   const comprobarInstalacio = () => {
     const res = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true
-    console.log(res)
+    return res
   }
 
   return (
@@ -360,7 +360,12 @@ useEffect(() => {
       { isCopyLink && <SharedConfirm /> }
       { isQr && <Qr setIsQr={setIsQr}/> }
       { isApoyar && <ApoyarProyecto setIsApoyar={setIsApoyar}/> }
-      { isInstalar && <Install setIsInstalar={setIsInstalar} />}
+      { isInstalar && 
+        <Install 
+          setIsInstalar={setIsInstalar} 
+          comprobarInstalacio={comprobarInstalacio} 
+        />
+      }
       {
         isModalGeo && 
           <ModalGeo 
@@ -510,7 +515,7 @@ useEffect(() => {
               </button>
             </div>  
 
-  <div className='lista-card-farmacias'>
+            <div className='lista-card-farmacias'>
 
             {array && !mostrarMapa && (
               <>
@@ -605,7 +610,7 @@ useEffect(() => {
               </div>
             )}
 
-  </div>
+          </div>
           </div>
         </aside>
       </main>
