@@ -22,6 +22,7 @@ import SharedConfirm from './ShareConfirm.jsx';
 import Qr from './Qr.jsx';
 import ApoyarProyecto from './ApoyarProyecto.jsx';
 import Info from './Info.jsx'
+import Install from './Install.jsx';
 
 import { getData } from "../firebase/auth.js"
 
@@ -82,7 +83,8 @@ const Home = () => {
   const [ isMenu, setIsMenu ] = useState(false);
   const [ isCopyLink, setIsCopyLink ] = useState(false)
   const [ isQr, setIsQr ] = useState(false);
-  const [ isApoyar, setIsApoyar ] = useState(false)
+  const [ isApoyar, setIsApoyar ] = useState(false);
+  const [ isInstalar, setIsInstalar ] = useState(false);
 
   const headerRef = useRef(null);
   const mainRef = useRef(null);
@@ -98,6 +100,7 @@ const Home = () => {
   document.documentElement.classList.toggle("modoOscuroMain", modoTema === false);
 }, [modoTema]);
   
+// Cerrar menu haciendo click por fuera del menu.
   useEffect(() => {
     const cerrarMenu = (e) => {
       if(menuRef.current && !menuRef.current.contains(e.target)){
@@ -344,6 +347,11 @@ useEffect(() => {
     return `${distance} Km.`;
   };  
 
+  const comprobarInstalacio = () => {
+    const res = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true
+    console.log(res)
+  }
+
   return (
     <div className="contendor-home">
       {
@@ -352,6 +360,7 @@ useEffect(() => {
       { isCopyLink && <SharedConfirm /> }
       { isQr && <Qr setIsQr={setIsQr}/> }
       { isApoyar && <ApoyarProyecto setIsApoyar={setIsApoyar}/> }
+      { isInstalar && <Install setIsInstalar={setIsInstalar} />}
       {
         isModalGeo && 
           <ModalGeo 
@@ -378,6 +387,9 @@ useEffect(() => {
           menuRef={menuRef}
           setIsCopyLink={setIsCopyLink}
           setIsQr={setIsQr}
+          isInstalar={isInstalar}
+          setIsInstalar={setIsInstalar}
+          comprobarInstalacio={comprobarInstalacio}
           />
       }
       <header
@@ -453,152 +465,155 @@ useEffect(() => {
           }
         </aside>
         <aside className="aside-derecho">
-  <div className="contenedor-farmacias">
+          <div className="contenedor-farmacias">
 
-    <div className="header-farmacias">
-      <h3 style={{textAlign:'center'}}>Lista de farmacias</h3>
-        {letra && (
-      <p className="letra-turno"
-        style={{display:'flex', justifyContent:'center',alignItems:'center',gap: '10px' }}
-      >
-        Letra: <span
-          style={{
-            fontWeight:'bold',
-            backgroundColor: 'green',
-            display:'flex',
-            justifyContent:'center',
-            alignItems:'center',
-            borderRadius:'50%',
-            width: '30px',
-            height: '30px',
-           color:'white'
-          }}
-        >{letra}</span>
-      </p>
-    )}
-
-      <button
-        className="btn-show-map"
-        onClick={() => setMostrarMapa(!mostrarMapa)}
-        title="Mostrar / Ocultar mapa"
-      >
-        {mostrarMapa ? (
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            height="28"
-            viewBox="0 -960 960 960"
-            width="28"
-            fill= {modoTema ? "red" : 'white'}
-          >
-            <path d="m251.33-204.67-46.66-46.66L433.33-480 204.67-708.67l46.66-46.66L480-526.67l228.67-228.66 46.66 46.66L526.67-480l228.66 228.67-46.66 46.66L480-433.33 251.33-204.67Z"/>
-          </svg>
-        ) : (          
-          <FaMapLocationDot size={28} style={{color: modoTema ? 'black' : 'white'}}/>
-        )}
-      </button>
-    </div>  
-
-    {array && !mostrarMapa && (
-      <>
-        { array.map((pharmacy, index) => (
-          <div
-            className="card-farmacia"
-            key={index}
-          >
-            <div className="card-body">
-              <span>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="15" height="15">
-                    <circle cx="250" cy="250" r="230" fill="none" stroke="#009A3B" strokeWidth="20" />  
-                    <path fill="#009A3B" d="
-                      M 200,60 
-                      L 300,60 
-                      L 300,200 
-                      L 440,200 
-                      L 440,300 
-                      L 300,300 
-                      L 300,440 
-                      L 200,440 
-                      L 200,300 
-                      L 60,300 
-                      L 60,200 
-                      L 200,200 
-                      Z
-                    " />
-                </svg>
-                { /*<div className="ciculo"></div>*/}
-              <h4>{pharmacy.name}</h4>
-              </span>
-
-              <a
-                className="btn-maps"
-                href={`https://www.google.com/maps/search/?api=1&query=${pharmacy.lat},${pharmacy.lon}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                title="Abrir en Google Maps"
+            <div className="header-farmacias">
+              <h3 style={{textAlign:'center'}}>Lista de farmacias</h3>
+                {letra && (
+              <p className="letra-turno"
+                style={{display:'flex', justifyContent:'center',alignItems:'center',gap: '10px' }}
               >
-                <motion.span
-                  whileHover={{
-                  transformOrigin: 'bottom',
-                  rotate: [0, -25, 25, 0]
+                Letra: <span
+                  style={{
+                    fontWeight:'bold',
+                    backgroundColor: 'green',
+                    display:'flex',
+                    justifyContent:'center',
+                    alignItems:'center',
+                    borderRadius:'50%',
+                    width: '30px',
+                    height: '30px',
+                   color:'white'
                   }}
-                >
-                  <SiGooglemaps size={24}/>
-                </motion.span>
-              </a>
+                >{letra}</span>
+              </p>
+            )}
 
-              <span><MdOutlineLocationOn /><p>{pharmacy.address}</p></span>
+              <button
+                className="btn-show-map"
+                onClick={() => setMostrarMapa(!mostrarMapa)}
+                title="Mostrar / Ocultar mapa"
+              >
+                {mostrarMapa ? (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="28"
+                    viewBox="0 -960 960 960"
+                    width="28"
+                    fill= {modoTema ? "red" : 'white'}
+                  >
+                    <path d="m251.33-204.67-46.66-46.66L433.33-480 204.67-708.67l46.66-46.66L480-526.67l228.67-228.66 46.66 46.66L526.67-480l228.66 228.67-46.66 46.66L480-433.33 251.33-204.67Z"/>
+                  </svg>
+                ) : (          
+                  <FaMapLocationDot size={28} style={{color: modoTema ? 'black' : 'white'}}/>
+                )}
+              </button>
+            </div>  
 
-              {ubication && (
-                <span>
-                  <GrLocationPin className='pin'/>
-                <p>                  
-                  {pharmacy.distance !== null
-                    ? formatDistance(pharmacy.distance)
-                    : "Calculando..."}
-                </p>
-                </span>
-              )}
+  <div className='lista-card-farmacias'>
 
-              { pharmacy.tel && <span><MdOutlineLocalPhone /><p>{pharmacy.tel}</p></span> }
+            {array && !mostrarMapa && (
+              <>
+                { array.map((pharmacy, index) => (
+                  <div
+                    className="card-farmacia"
+                    key={index}
+                  >
+                    <div className="card-body">
+                      <span>
+                        { /* Icono farmacia */}
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="15" height="15">
+                            <circle cx="250" cy="250" r="230" fill="none" stroke="#009A3B" strokeWidth="20" />  
+                            <path fill="#009A3B" d="
+                              M 200,60 
+                              L 300,60 
+                              L 300,200 
+                              L 440,200 
+                              L 440,300 
+                              L 300,300 
+                              L 300,440 
+                              L 200,440 
+                              L 200,300 
+                              L 60,300 
+                              L 60,200 
+                              L 200,200 
+                              Z
+                            " />
+                        </svg>
+                        { /*<div className="ciculo"></div>*/}
+                      <h4>{pharmacy.name}</h4>
+                      </span>
+                
+                      <a
+                        className="btn-maps"
+                        href={`https://www.google.com/maps/search/?api=1&query=${pharmacy.lat},${pharmacy.lon}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title="Abrir en Google Maps"
+                      >
+                        <motion.span
+                          whileHover={{
+                          transformOrigin: 'bottom',
+                          rotate: [0, -25, 25, 0]
+                          }}
+                        >
+                          <SiGooglemaps size={24}/>
+                        </motion.span>
+                      </a>
+                        
+                      <span><MdOutlineLocationOn /><p>{pharmacy.address}</p></span>
+                        
+                      {ubication && (
+                        <span>
+                          <GrLocationPin className='pin'/>
+                        <p>                  
+                          {pharmacy.distance !== null
+                            ? formatDistance(pharmacy.distance)
+                            : "Calculando..."}
+                        </p>
+                        </span>
+                      )}
 
-            </div>
-          </div>
-        ))}
-      </>
-    )}
+                      { pharmacy.tel && <span><MdOutlineLocalPhone /><p>{pharmacy.tel}</p></span> }
+                    
+                    </div>
+                  </div>
+                ))}
+              </>
+            )}
 
+            {!array && (
+              <p className="sin-farmacias">
+                No se encontraron farmacias para mostrar.
+              </p>
+            )}
 
-    {!array && (
-      <p className="sin-farmacias">
-        No se encontraron farmacias para mostrar.
-      </p>
-    )}
-
-    {array && mostrarMapa && (
-      <div className="contenedor-mapa">
-        <MapaUbicaciones
-          puntos={array}
-          ubication={ubication}
-          actual={
-            lat1 && lon1
-              ? {
-                  lat: lat1,
-                  lng: lon1,
-                }
-              : null
-          }
-        />
-      </div>
-    )}
+            {array && mostrarMapa && (
+              <div className="contenedor-mapa">
+                <MapaUbicaciones
+                  puntos={array}
+                  ubication={ubication}
+                  actual={
+                    lat1 && lon1
+                      ? {
+                          lat: lat1,
+                          lng: lon1,
+                        }
+                      : null
+                  }
+                />
+              </div>
+            )}
 
   </div>
-</aside>
+          </div>
+        </aside>
       </main>
       <footer
          className={ modoTema ? 'modoClaroHeader' : 'modoOscuroHeader' }
       >
         <section className='footer-info'>
-        <p>Diseñado por Hernán Luis Veyret - Dino Studio Web Development - 2024 - Version 2 - hernanveyret@hotmail.com</p>
+        <p>Diseñado por Hernán Luis Veyret - Dino Studio Web Development - 2024 - V2 - hernanveyret@hotmail.com</p>
         </section>
         <div className="logo">
           <img src='./logo.png' alt='Imagen logo' />

@@ -8,11 +8,10 @@ import { BsQrCode } from "react-icons/bs";
 import { MdHeight, MdOutlineLocationOn } from "react-icons/md";
 import { MdOutlineLocationOff } from "react-icons/md";
 import { AiOutlineClose } from "react-icons/ai";
+import { MdInstallMobile } from "react-icons/md";
 
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-
-
 
 import './menu.css';
 
@@ -30,7 +29,10 @@ const Menu = ({
   ubication,
   menuRef,
   setIsCopyLink,
-  setIsQr
+  setIsQr,
+  isInstalar,
+  setIsInstalar,
+  comprobarInstalacio,
 }) => {
 
    const copiarLink = () => {
@@ -46,7 +48,6 @@ const Menu = ({
     })
   }
 
- 
   return (     
     
       <motion.div 
@@ -120,6 +121,19 @@ const Menu = ({
           <BsQrCode />
           <p>Conpartir QR</p>
         </button>
+
+        <motion.button
+          type='button'
+          className='btn-menu-active'
+          onClick={() => {
+            setIsMenu(false)
+            setIsInstalar(true)
+            comprobarInstalacio()
+          }}
+        >
+          <MdInstallMobile />
+          <p>Instalar en tu dispositivo</p>
+        </motion.button>
         
         <Link 
           className='btn-menu-active'
