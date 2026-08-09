@@ -14,8 +14,22 @@ const Install = ({
 
   return (
     <div className="contendor-instalar">
-      <p>Instalar app <button onClick={() => { setIsInstalar(false)}}>X</button></p>
-      { isInstalada ? <p>La app ya esta instalada</p> : <p>hay que instalar la app</p>}
+      <button onClick={() => { setIsInstalar(false)}}>X</button>
+      { 
+        isInstalada.res 
+        ? 
+        <p>La app ya esta instalada</p> 
+        :
+        <p>hay que instalar la app</p>
+      }
+
+      {
+        isInstalada.ios 
+        ? 
+        <p>Es ios</p>
+        :
+        <p>No es ios</p>
+      }
     </div>
   )
 };

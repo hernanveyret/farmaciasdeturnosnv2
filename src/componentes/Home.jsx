@@ -349,7 +349,8 @@ useEffect(() => {
 
   const comprobarInstalacio = () => {
     const res = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true
-    return res
+    const esIOS =  /iPhone|iPad|iPod/i.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
+    return { res: res, ios: esIOS}
   }
 
   return (
