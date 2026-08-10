@@ -22,6 +22,7 @@ import SharedConfirm from './ShareConfirm.jsx';
 import Qr from './Qr.jsx';
 import ApoyarProyecto from './ApoyarProyecto.jsx';
 import Info from './Info.jsx'
+import Error from './Error.jsx';
 
 import { getData } from "../firebase/auth.js"
 
@@ -77,7 +78,7 @@ const Home = () => {
   const [ isModalGeo, setIsModalGeo ] = useState(config && config.modalGeo)
   const [ isGeo, setIsGeo ] = useState(config && config.geo);
   const [ isOtrosbanner, setIsOtrosBanner ] = useState(config && config.otrosBanner) 
-  
+  const [ isErrorDb, setIsErrorDb ] = useState(false);
   const [ calendario, setCalendario ] = useState(null); 
   const [ isMenu, setIsMenu ] = useState(false);
   const [ isCopyLink, setIsCopyLink ] = useState(false)
@@ -143,14 +144,14 @@ useEffect(() => {
 useEffect(() => {
   setIsLoader(true);
 
-  const unsubscribe = getData(
-    (data) => {
+  const unsubscribe = getData((data) => {
       setCalendario(data);
       setIsLoader(false);
     },
     (error) => {
       console.error(error);
       setIsLoader(false);
+      setIsErrorDb(true)
     }
   );
 
@@ -263,9 +264,8 @@ useEffect(() => {
     const [hours, minutes, seconds] = timeStr.split(":").map(Number);
     return new Date(2024, 0, 1, hours, minutes, seconds).getTime();
   };
-// Función auxiliar para pasar "HH:MM:SS" a minutos transcurridos en el día
 
- 
+// Función auxiliar para pasar "HH:MM:SS" a minutos transcurridos en el día
   const horaActual = convertToTime(hora);
   //const inicio = convertToTime("08:00:00");
   const inicio = convertToTime("00:00:00");
@@ -331,11 +331,11 @@ useEffect(() => {
     setLetra(pharmaciesData.dateShift.toUpperCase());
   }, [calendario, day, month, year, horaActual, ubication, lat1, lon1, isEarlyMorning]);
 
-    if (error) {
+  if (error) {
       console.log("Error geo, pero sigo mostrando la app");
   }
 
-  if (!calendario) {
+  if (isLoader) {
     return <Loader />;
   }
     const formatDistance = (distance) => {
@@ -456,6 +456,7 @@ useEffect(() => {
             />
           }
         </aside>
+
         <aside className="aside-derecho">
           <div className="contenedor-farmacias">
 
@@ -504,7 +505,10 @@ useEffect(() => {
 
             <div className='lista-card-farmacias'>
 
-            {array && !mostrarMapa && (
+            { isErrorDb ? 
+             ( <Error /> ) 
+             : 
+             ( array && array.length > 0 && !mostrarMapa && (
               <>
                 { array.map((pharmacy, index) => (
                   <div
@@ -565,14 +569,13 @@ useEffect(() => {
                         </p>
                         </span>
                       )}
-
                       { pharmacy.tel && <span><MdOutlineLocalPhone /><p>{pharmacy.tel}</p></span> }
                     
                     </div>
                   </div>
                 ))}
               </>
-            )}
+            ))}
 
             {!array && (
               <p className="sin-farmacias">

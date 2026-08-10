@@ -23,11 +23,7 @@ import {
         reauthenticateWithCredential 
         } from "firebase/auth";
 
-import { 
-        updateEmail, 
-       
-        
-      } from "firebase/auth";
+import { updateEmail} from "firebase/auth";
 
 import { auth, db } from "./config.js";
 
@@ -56,7 +52,6 @@ export const cerrarSesion = async () => {
 //Escuchar en tiempo real para ver la base de datos cronograma
 export const getData = (onSuccess, onError) => {
   const referencia = doc(db, "farmaciasDb", "calendario-farmacias");
-
   return onSnapshot(
     referencia,
     (snapshot) => {
