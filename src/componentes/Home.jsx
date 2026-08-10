@@ -461,7 +461,10 @@ useEffect(() => {
           <div className="contenedor-farmacias">
 
             <div className="header-farmacias">
-              <h3 style={{textAlign:'center'}}>Lista de farmacias</h3>
+              <h3 style={{textAlign:'center'}}>Farmacias de turno disponibles</h3>
+                { 
+                  isEarlyMorning && <p style={{textAlign:'center'}}>Turnos vigentes hasta las 8:30 hs</p>
+                }
                 {letra && (
               <p className="letra-turno"
                 style={{display:'flex', justifyContent:'center',alignItems:'center',gap: '10px' }}
