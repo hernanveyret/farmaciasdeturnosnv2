@@ -77,10 +77,23 @@
     font-weight: 600;
 }
 
-.informacion a:hover {
-    text-decoration: underline;
+.informacion span p {
+    margin: 0;
 }
 
+.informacion span {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+}
+
+.mp-link {
+    color: white !important;
+}
+.mp-link:hover {
+    text-decoration: none;
+}
 @media (max-width: 600px) {
     .container-info {
         padding: 15px 12px 70px;

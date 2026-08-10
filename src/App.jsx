@@ -10,7 +10,6 @@ import "./App.css";
 
 function App() {
   const [deferredPrompt, setDeferredPrompt] = useState(null);
-
  
   // EVENTO PARA DETECTAR CUANDO EL NAVEGADOR PERMITE INSTALAR
   useEffect(() => {
@@ -34,8 +33,6 @@ function App() {
     };
 
   }, []);
-
-
   
   // COMPROBAR SI LA APP YA ESTÁ INSTALADA
   const comprobarInstalacion = useCallback(() => {

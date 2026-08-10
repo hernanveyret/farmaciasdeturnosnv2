@@ -1,15 +1,28 @@
-import React from 'react';
+import React,{ useState } from 'react';
 import { IoPhonePortraitOutline } from "react-icons/io5";
 import { GrLocationPin } from "react-icons/gr";
 import { TiInfoOutline } from "react-icons/ti";
 import { LuHandshake } from "react-icons/lu";
 import { CiCircleChevLeft } from "react-icons/ci";
+import { IoHeartOutline } from "react-icons/io5";
 
 import { Link } from 'react-router-dom'
 import './info.css';
 
 
 const Info = () => {
+const [copiado, setCopiado] = useState(false);
+const alias = "hernanveyret.mp";
+const mpLink = "https://link.mercadopago.com.ar/farmaciasdeturnosn";
+
+ const copiarAlias = async () => {
+  await navigator.clipboard.writeText(alias);
+  setCopiado(true);
+  setTimeout(() => {
+    setCopiado(false)
+  }, 3000);
+};
+
   return (
     <div className="container-info">
       <Link to='/'><CiCircleChevLeft />Volver</Link>
@@ -87,6 +100,38 @@ const Info = () => {
             Si encontrás alguna información incorrecta, 
             escribinos a hernanveyret@hotmail.com para que podamos verificarla y actualizarla lo antes posible.
           </p>
+        </div>
+      </section>
+      <section>
+        <div className="titulo">
+          <IoHeartOutline />
+          <h4>Apoyar este proyecto</h4>
+        </div>
+        <div className="informacion">
+          <p>
+            Esta web es un proyecto independiente, 
+            gratuito y sin publicidad invasiva. 
+            Si te fue útil, 
+            podés colaborar para mantenerla online y seguir mejorándola. ¡Gracias!
+          </p>
+          <span>
+            <p>hernanveyret.mp</p>
+            <button 
+            className="btn-apoyar"
+            onClick={copiarAlias}>
+            {copiado ? "¡Copiado!" : "Copiar alias"}
+          </button>
+            </span>
+          <span>            
+            <a
+              href={mpLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mp-link"
+            >
+              Ir a Mercado Pago
+            </a>
+          </span>
         </div>
       </section>
     </div>
