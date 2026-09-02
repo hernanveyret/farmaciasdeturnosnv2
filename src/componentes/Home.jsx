@@ -400,9 +400,9 @@ useEffect(() => {
           }}
           whileHover={{
             rotate: [0, -5, 5, -5, 0],
-          }}
-          transition={{
-            duration: .35,
+            transition: {
+              duration: 0.35,
+            },
           }}
           className='btn-menu-principal'
           onClick={() => { setIsMenu(!isMenu)}}
