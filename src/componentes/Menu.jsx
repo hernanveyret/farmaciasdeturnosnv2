@@ -107,7 +107,7 @@ const Menu = ({
           onClick={() => copiarLink()}
         >
           <FiLink />
-          <p>Conpartir link</p>
+          <p>Compartir link</p>
         </button>
 
         <button
